@@ -1,5 +1,18 @@
 <% if logged_in? %>
-  <p>ログイン完了ユーザ: <%= current_user.name %></p>
+  <div class="row">
+    <aside class="col-sm-4">
+      <%= form_with(model: @photo, local: true) do |f| %>
+      <div class="form-group">
+          <%= f.label :title, 'タイトル' %>
+          <%= f.text_field :title, class: 'form-control' %>
+        </div>
+        <%= f.submit '投稿', class: 'btn btn-success btn-block' %>
+      <% end %>
+    </aside>
+    <div class="col-sm-8">
+      <%= render 'photos/photos', photos: @photos %>
+    </div>
+  </div>
 <% else %>
 <div class="center jumbotron">
   <div class ="container">
@@ -12,6 +25,6 @@
 
 <div class="text-center">
   <%= link_to '会員登録', signup_path, class: 'btn btn-lg btn-success' %>
-  <button type="button" class="btn btn-outline-success">ログイン</button>
+  <%= link_to 'ログイン', login_path, class: 'btn btn-lg btn-success' %>
 </div>
 <% end %>
