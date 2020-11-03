@@ -8,4 +8,21 @@ class User < ApplicationRecord
     has_secure_password
     
     has_many :photos
+    has_many :favorites
+    has_many :likes, through: :favorites, source: :photo
+    
+    def favorite(other_photo)
+      self.favorites.find_or_create_by(photo_id: other_photo.id)
+    end
+
+    def unfavorite(other_photo)
+    favorite = self.favorites.find_by(photo_id: other_photo.id)
+    favorite.destroy if favorite
+    end
+
+    def likes?(other_photo)
+    self.likes.include?(other_photo)
+    end
+    
+    
 end

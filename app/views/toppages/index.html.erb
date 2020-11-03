@@ -5,6 +5,10 @@
       <div class="form-group">
           <%= f.label :title, 'タイトル' %>
           <%= f.text_field :title, class: 'form-control' %>
+          <div class = 'field'>
+          <%= f.label :content, '画像' %><br />
+          <%= f.file_field :content %>
+          </div>
         </div>
         <%= f.submit '投稿', class: 'btn btn-success btn-block' %>
       <% end %>
@@ -14,13 +18,11 @@
     </div>
   </div>
 <% else %>
-<div class="center jumbotron">
-  <div class ="container">
+<div class="jumbotron">
     <div class="text-center">
         <h1>Healing Photos</h1>
         <h2>あなたの癒しを感じた写真を共有しよう！</h2>
     </div>
-  </div>
 </div>
 
 <div class="text-center">

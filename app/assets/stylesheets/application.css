@@ -13,3 +13,11 @@
  *= require_tree .
  *= require_self
  */
+.jumbotron{
+    background:url('healing.jpg');
+    background-size: cover;
+}
+
+.text-center{
+    color:#FFCC33;
+}

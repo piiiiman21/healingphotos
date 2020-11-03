@@ -8,8 +8,10 @@
         </div>
         <div>
           <p><%= photo.title %></p>
+          <p><%= image_tag photo.content.url if photo.content? %></p>
         </div>
         <div>
+        <%= render 'favorites/favorite_button', photo: photo %>
           <% if current_user == photo.user %>
             <%= link_to "Delete", photo, method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-danger btn-sm' %>
           <% end %>
