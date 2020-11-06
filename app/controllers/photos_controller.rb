@@ -9,7 +9,7 @@ class PhotosController < ApplicationController
       flash[:success] = '画像を投稿しました。'
       redirect_to root_url
     else
-      @photos = current_user.feed_photos.order(id: :desc).page(params[:page])
+      @photos = current_user.photos.order(id: :desc).page(params[:page])
       flash.now[:danger] = '画像の投稿に失敗しました。'
       render 'toppages/index'
     end

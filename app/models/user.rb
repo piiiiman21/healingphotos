@@ -7,8 +7,8 @@ class User < ApplicationRecord
                     
     has_secure_password
     
-    has_many :photos
-    has_many :favorites
+    has_many :photos, dependent: :destroy
+    has_many :favorites, dependent: :destroy
     has_many :likes, through: :favorites, source: :photo
     
     def favorite(other_photo)
