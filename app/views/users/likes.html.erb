@@ -8,6 +8,11 @@
         <img class="rounded img-fluid" src="<%= gravatar_url(@user, { size: 500 }) %>" alt="">
       </div>
     </div>
+    <% if current_user.id == @user.id %>
+    <div>
+     <%= link_to 'ユーザーを編集する', edit_user_path(current_user.id)%>
+    </div>
+   <% end %>
   </aside>
   <div class="col-sm-8">
     <ul class="nav nav-tabs nav-justified mb-3">
