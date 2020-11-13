@@ -1,0 +1,11 @@
+<h1>ユーザーの編集ページ</h1>
+
+<%= form_with(model: @user, local: true) do |f| %>
+  <%= f.label :name, 'ユーザー名' %>
+  <%= f.text_field :name %>
+
+  <%= f.submit '保存' %>
+<% end %>
+
+<%= link_to 'ユーザー詳細ページに戻る', user_path %><br>
+<%= link_to 'ユーザーを削除する', @user, method: :delete, data: { confirm: '本当に削除してよろしいですか？' } %>
